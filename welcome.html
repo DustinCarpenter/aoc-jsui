@@ -1,0 +1,472 @@
+<div class="container py-3">
+    <header class="mb-4 text-center">
+        <h1 class="text-success mb-2">aoc-jsui</h1>
+        <p class="text-muted mb-0">
+            A lightweight, zero-build Advent of Code JavaScript scratchpad that runs entirely in your browser.
+        </p>
+    </header>
+
+    <div class="row g-3">
+        <!-- What is it -->
+        <div class="col-12 col-lg-6">
+            <div class="p-3 border rounded bg-body-tertiary h-100">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-lightning-charge"></i> What is aoc-jsui?</h2>
+                <p class="mb-2">
+                    <strong class="text-warning">aoc-jsui</strong> is a small front-end interface for solving Advent of
+                    Code puzzles in JavaScript: open a day, paste input (or load a local example), write code, run it,
+                    and save your solution files.
+                </p>
+                <p class="mb-0">
+                    There is no backend, no build steps, and no hosted puzzle text. Puzzle descriptions remain on the
+                    <a href="https://www.adventofcode.com" target="_blank" class="text-warning">Advent Of Code</a>
+                    website. Inputs and solutions are handled locally via files and your browser.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="p-3 border rounded bg-body-tertiary h-100">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-question-circle"></i> Why did I make this?</h2>
+                <p class="mb-0">
+                    Honeslty, I had as much fun working on the interface as I did working on the puzzles. Nobody
+                    <em>needs</em>
+                    this system, but it was fun to make and I thought I would share with the AoC community.
+                </p>
+            </div>
+        </div>
+
+        <!-- Quick start + Settings (paired) -->
+        <div class="col-12 col-lg-6">
+            <div class="p-3 border rounded bg-body-tertiary h-100">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-play-btn"></i> Quick start</h2>
+                <ol class="mb-0">
+                    <li class="mb-2">
+                        Open <code>index.html</code> in your browser. You can serve the folder with any static server or
+                        use the
+                        <a
+                            href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+                            target="_blank"
+                            class="text-warning"
+                            >VS Code Live Server extension</a
+                        >
+                        if you're really lazy like me.
+                    </li>
+                    <li class="mb-2">
+                        Pick a <strong>Year</strong> in Settings <i class="bi bi-gear text-info"></i> (top toolbar).
+                    </li>
+                    <li class="mb-2">
+                        Click a
+                        <a class="nav-link d-inline-block text-warning border border-success p-1">day</a> in the nav
+                        (URL hash updates like <code>#6</code>).
+                    </li>
+                    <li class="mb-2">
+                        Paste your input into <strong>Puzzle Input</strong>, or use
+                        <i class="bi bi-folder-symlink-fill text-danger"></i> to load a local example.
+                    </li>
+                    <li class="mb-2">
+                        Write your solution in the editor and click Run
+                        <span class="bg-success"><i class="bi bi-play-fill"></i></span>.
+                    </li>
+                    <li>
+                        Use <strong>Save</strong> to download your JS file, then move it into the appropriate folder.
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="p-3 border rounded bg-body-tertiary h-100">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-gear text-success"></i> Settings behavior</h2>
+                <ul class="mb-0">
+                    <li class="mb-2">
+                        Settings are stored in your browser (local storage) and persist across sessions.
+                    </li>
+                    <li class="mb-2"><strong>Theme</strong> switches light/dark and applies to the whole UI.</li>
+                    <li class="mb-2">
+                        <strong>Day layout</strong> controls how Part 1 / Part 2 are presented:
+                        <span class="badge text-bg-success">Tabbed</span> or
+                        <span class="badge text-bg-info">Side-by-side</span>.
+                    </li>
+                    <li class="mb-2">
+                        The nav's unlocked days are calculated automatically based on the selected year and today's
+                        date.
+                    </li>
+                    <li class="mb-0">
+                        Tip: If you run into caching while editing locally, bump your asset version (indead head of
+                        index.html) or hard refresh.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Inputs -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-folder2-open"></i> Inputs</h2>
+                <p class="mb-2">
+                    The input box is shared between Part 1 and Part 2. Your personal puzzle input is only used locally
+                    in the browser.
+                </p>
+
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded">
+                            <h3 class="h6 text-success mb-2">Local example inputs</h3>
+                            <p class="mb-2">If you keep example inputs on disk, save them here:</p>
+                            <pre class="mb-0"><code>inputs/{year}/{day}-input.txt</code></pre>
+                            <p class="mt-2 mb-0 text-muted small">
+                                With <em>Auto-load example input</em> enabled, the app will load this file automatically
+                                when the day opens. Otherwise you can click <strong>Get local example</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded">
+                            <h3 class="h6 text-success mb-2">Personal puzzle input</h3>
+                            <p class="mb-2">
+                                Get your input from the official AoC site and paste it into the input box.
+                            </p>
+                            <p class="mb-0 text-muted small">
+                                This project intentionally does not fetch or store your personalized AoC input.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solutions -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-braces"></i> Solutions</h2>
+
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Day-specific solution files</h3>
+                            <p class="mb-2">Put your solutions here:</p>
+                            <pre class="mb-0"><code>solutions/{year}/{day}-1.js
+solutions/{year}/{day}-2.js</code></pre>
+                            <p class="mt-2 mb-0 text-muted small">
+                                With <em>Auto-load solutions</em> enabled, the app loads these automatically when the
+                                day opens.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Default templates</h3>
+                            <p class="mb-2">
+                                If a day-specific solution file doesn't exist, the editor starts from a template:
+                            </p>
+                            <pre class="mb-0"><code>solutions/solution-1.js
+solutions/solution-2.js</code></pre>
+                            <p class="mt-2 mb-0 text-muted small">
+                                This keeps the editor from opening blank and gives you a consistent starting point.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-3" />
+
+                <div class="p-3 border rounded">
+                    <h3 class="h6 text-success mb-2">Execution contract</h3>
+                    <ul class="mb-0">
+                        <li class="mb-2">Your code receives the full input as a string named <code>input</code>.</li>
+                        <li class="mb-2">Whatever you <code>return</code> is shown in the output box for that part.</li>
+                        <li class="mb-0">
+                            Use the save button to download your work. Place the downloaded file into the correct
+                            <code>solutions/{year}/</code> folder to have it auto-load next time.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How navigation works -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-diagram-3"></i> How navigation works</h2>
+                <p class="mb-2">
+                    The router listens to the URL hash (for example <code>#5</code>) and loads the day template,
+                    initializes the editors, and then attempts to load inputs/solutions for that day.
+                </p>
+                <ul class="mb-0">
+                    <li class="mb-2"><strong>Past years:</strong> all days are unlocked.</li>
+                    <li class="mb-2"><strong>Current year:</strong> days unlock automatically during December.</li>
+                    <li class="mb-0"><strong>Future years:</strong> days remain disabled until the contest starts.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-stack"></i> Technologies used</h2>
+
+                <p class="mb-3">
+                    This project intentionally sticks to well-known, low-friction web technologies. The goal is to keep
+                    the system easy to understand, easy to modify, and easy to run without any build tooling or backend
+                    services.
+                </p>
+
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Core web technologies</h3>
+                            <ul class="mb-0">
+                                <li class="mb-1">
+                                    <strong>HTML5</strong> - page structure, layout, and HTML includes for shared UI
+                                    fragments.
+                                </li>
+                                <li class="mb-1">
+                                    <strong>CSS3</strong> - layout tweaks, theming adjustments, and small utility
+                                    styles.
+                                </li>
+                                <li class="mb-1">
+                                    <strong>Vanilla JavaScript (ES6+)</strong> - all application logic, routing, state
+                                    handling, and file interactions.
+                                </li>
+                                <li class="mb-0">
+                                    <strong>Browser APIs</strong> - <code>localStorage</code>, <code>fetch</code>,
+                                    <code>URL hash</code>, and the File Save APIs for downloading solutions.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">UI &amp; presentation</h3>
+                            <ul class="mb-0">
+                                <li class="mb-1">
+                                    <strong>Bootstrap 5</strong> - responsive grid, layout utilities, components, and
+                                    dark/light theme support.
+                                </li>
+                                <li class="mb-1">
+                                    <strong>Bootstrap Icons</strong> - all toolbar, navigation, and action icons.
+                                </li>
+                                <li class="mb-0">
+                                    <strong>CSS utility classes</strong> - used heavily instead of custom components to
+                                    keep styles predictable and readable.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Code editing &amp; execution</h3>
+                            <ul class="mb-0">
+                                <li class="mb-1">
+                                    <strong>CodeMirror</strong> - in-browser JavaScript editor for Part 1 and Part 2
+                                    solutions.
+                                </li>
+                                <li class="mb-1">
+                                    <strong>Dynamic evaluation</strong> - user-written solution code is executed in a
+                                    controlled runtime with a simple input/output contract.
+                                </li>
+                                <li class="mb-0">
+                                    <strong>Editor templates</strong> - fallback starter files provide consistent
+                                    defaults when no solution exists yet.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Application structure</h3>
+                            <ul class="mb-0">
+                                <li class="mb-1">
+                                    <strong>Hash-based routing</strong> - day navigation driven by the URL hash
+                                    (<code>#1</code>, <code>#2</code>, etc.).
+                                </li>
+                                <li class="mb-1">
+                                    <strong>Modular JS files</strong> - separate files for routing, settings,
+                                    navigation, editor management, and day logic.
+                                </li>
+                                <li class="mb-0">
+                                    <strong>Configuration-driven behavior</strong> - year selection, layout choice,
+                                    paths, and feature toggles defined via config and persisted settings.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="p-3 border rounded">
+                            <h3 class="h6 text-success mb-2">What's intentionally not used</h3>
+                            <ul class="mb-0">
+                                <li class="mb-1">No backend or server-side code</li>
+                                <li class="mb-1">No build tools or bundlers</li>
+                                <li class="mb-1">No frameworks (React, Vue, etc.)</li>
+                                <li class="mb-0">No external APIs for puzzle content or inputs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted small">
+                    If you're comfortable with modern HTML, CSS, and JavaScript, everything in this project should feel
+                    approachable and easy to extend.
+                </p>
+            </div>
+        </div>
+
+        <!-- Formatting / tooling -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-brush"></i> Formatting &amp; editor setup</h2>
+
+                <p class="mb-2">
+                    This project includes editor formatting conventions so files stay consistent across machines and
+                    commits. The intention is to keep diffs clean and avoid “style debates” while you’re focused on
+                    solving puzzles.
+                </p>
+
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Prettier</h3>
+                            <p class="mb-2">
+                                JavaScript / TypeScript / JSON / HTML / CSS formatting is handled by
+                                <a href="https://prettier.io/" target="_blank" class="text-warning">Prettier</a>. In VS
+                                Code, the
+                                <a
+                                    href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"
+                                    target="_blank"
+                                    class="text-warning"
+                                    >Prettier extension</a
+                                >
+                                can format on save and keep everything consistent.
+                            </p>
+                            <ul class="mb-0">
+                                <li class="mb-1">Recommended: enable <strong>Format on Save</strong>.</li>
+                                <li class="mb-0">This repo prefers Prettier for most web files.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">EditorConfig</h3>
+                            <p class="mb-2">
+                                Basic whitespace rules (indentation, line endings, trimming) are enforced with
+                                <a href="https://editorconfig.org/" target="_blank" class="text-warning"
+                                    >EditorConfig</a
+                                >
+                                via <code>.editorconfig</code>. Most IDEs support this automatically, or via the
+                                <a
+                                    href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig"
+                                    target="_blank"
+                                    class="text-warning"
+                                    >VS Code EditorConfig extension</a
+                                >.
+                            </p>
+                            <ul class="mb-0">
+                                <li class="mb-1">Keeps indentation and line endings consistent.</li>
+                                <li class="mb-0">Avoids noisy diffs from whitespace changes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="p-3 border rounded">
+                            <h3 class="h6 text-success mb-2">VS Code notes</h3>
+                            <p class="mb-2">
+                                If you’re using VS Code, these extensions are commonly useful with this project:
+                            </p>
+                            <ul class="mb-0">
+                                <li class="mb-1">
+                                    <a
+                                        href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"
+                                        target="_blank"
+                                        class="text-warning"
+                                        >Prettier</a
+                                    >
+                                    — formatting for web files.
+                                </li>
+                                <li class="mb-1">
+                                    <a
+                                        href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig"
+                                        target="_blank"
+                                        class="text-warning"
+                                        >EditorConfig</a
+                                    >
+                                    — consistent whitespace rules.
+                                </li>
+                                <li class="mb-0">
+                                    <a
+                                        href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+                                        target="_blank"
+                                        class="text-warning"
+                                        >Live Server</a
+                                    >
+                                    — quick local hosting while you edit.
+                                </li>
+                            </ul>
+                            <p class="mt-2 mb-0 text-muted small">
+                                None of these are required — the app runs fine as a plain static site.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key files -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-file-earmark-code"></i> Key files</h2>
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">Core app</h3>
+                            <ul class="mb-0">
+                                <li><code>assets/js/app.js</code> - theme + include loader + settings UI wiring</li>
+                                <li><code>assets/js/aoc.settings.js</code> - settings persistence + computed values</li>
+                                <li><code>assets/js/router.js</code> - hash-based routing</li>
+                                <li>
+                                    <code>assets/js/aoc.day.js</code> - day wiring (inputs/outputs/editors/save/load)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="p-3 border rounded h-100">
+                            <h3 class="h6 text-success mb-2">UI modules</h3>
+                            <ul class="mb-0">
+                                <li><code>assets/js/ui.nav.js</code> - nav builder + day locking UI</li>
+                                <li><code>assets/js/ui.editors.js</code> - CodeMirror setup + run/save/fullscreen</li>
+                                <li><code>assets/js/config.js</code> - defaults (year, paths, layout default, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-3 mb-0 text-muted small">
+                    If you're reading the source, most behavior is intentionally straightforward: load HTML includes,
+                    build the nav, render a day, and glue inputs + editors together.
+                </p>
+            </div>
+        </div>
+
+        <!-- AoC content note (final) -->
+        <div class="col-12">
+            <div class="p-3 border rounded bg-body-tertiary">
+                <h2 class="h4 text-info mb-2"><i class="bi bi-shield-check"></i> Notes on AoC content</h2>
+                <p class="mb-2">
+                    Advent of Code puzzle content is owned by Advent of Code / Eric Wastl. This project does not ship
+                    puzzle text, and avoids storing personal inputs.
+                </p>
+                <p class="mb-0 text-muted small">
+                    If you share this project, keep example inputs and solutions in your own local folders, and link to
+                    the official site for puzzle statements.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

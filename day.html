@@ -1,0 +1,148 @@
+<div class="row align-items-center mb-3">
+    <div class="col-12 col-md-auto d-flex justify-content-center mb-3 mb-md-0">
+        <div class="day-box">
+            <div class="day-header text-center text-white fw-bold">Day</div>
+            <div class="day-body d-flex flex-column align-items-center justify-content-center gap-1">
+                <span id="dayNumber" class="day-number"></span>
+                <div class="d-flex gap-3 justify-content-center position-relative mb-2">
+                    <a
+                        id="officialInstructionsBtn"
+                        class="btn btn-outline-secondary fs-5"
+                        title="Review the official instructions for this puzzle"
+                        target="_blank"
+                    >
+                        <i class="bi bi-file-earmark-binary-fill text-warning"></i>
+                    </a>
+                    <a
+                        id="officialInputBtn"
+                        class="btn btn-outline-secondary fs-5"
+                        title="Get the official input from Advent of Code"
+                        target="_blank"
+                    >
+                        <i class="bi bi-file-earmark-code-fill text-info"></i>
+                    </a>
+                    <button
+                        id="loadPuzzleExample"
+                        class="btn btn-outline-secondary fs-5"
+                        title="Load an example input from disk (if present)"
+                    >
+                        <i class="bi bi-folder-symlink-fill text-danger"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="help-info small text-muted">
+            <p>
+                <strong class="text-success">Inputs</strong> - For each day an example and personal input can be used.
+                If you save your input (full or example) to <code>{inputsPath}/{year}/{day}-input.txt</code>, it can be
+                loaded into the input box when the day opens (if auto-load is enabled).
+            </p>
+            <p>
+                <strong class="text-success">Solutions</strong> - Solutions are plain JavaScript files stored at
+                <code>{solutionsPath}/{year}/{day}-1.js</code> and <code>{solutionsPath}/{year}/{day}-2.js</code>. The
+                editor does not save automatically, use the save button to download your file, then place it in the
+                correct folder. If auto-load is enabled and matching files exist, they will be loaded into the Part 1
+                and Part 2 editors when the day opens. Your code receives the full input text as <code>input</code>;
+                whatever you <code>return</code> appears in the output box.
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="row mt-3 gx-3">
+    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+        <div class="p-3 bg-body-tertiary border rounded">
+            <span class="text-warning fw-semibold">Puzzle Input</span>
+            <div class="mb-1">
+                <textarea class="form-control pre-style" id="puzzleInput" rows="6"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+        <div class="p-3 bg-body-tertiary border rounded">
+            <span class="text-warning fw-semibold">Puzzle Output</span>
+            <div class="mb-3">
+                <label for="puzzleOutput" class="form-label">Part 1</label>
+                <input type="text" class="form-control" id="puzzleOutput" readonly />
+            </div>
+            <div class="mb-3">
+                <label for="puzzleOutput2" class="form-label">Part 2</label>
+                <input type="text" class="form-control" id="puzzleOutput2" readonly />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3 gx-3">
+    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+        <div class="card border-secondary">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="text-info fw-semibold">Your Solution (Part 1)</span>
+                <div class="btn-toolbar" role="toolbar" aria-label="Part 1 editor toolbar">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <!-- Run / Solve -->
+                        <button id="btnRunCode1" type="button" class="btn btn-success" title="Solve Part 1">
+                            Run
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                        <!-- Save -->
+                        <button
+                            id="btnSaveCode1"
+                            type="button"
+                            class="btn btn-outline-secondary"
+                            title="Save Part 1 solution"
+                        >
+                            <i class="bi bi-download"></i>
+                        </button>
+                        <!-- Large view -->
+                        <button id="btnFullscreen1" type="button" class="btn btn-outline-secondary" title="Large view">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <!-- CodeMirror will replace this textarea -->
+                <textarea id="solutionEditor1" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+        <div class="card border-secondary">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="text-info fw-semibold">Your Solution (Part 2)</span>
+                <div class="btn-toolbar" role="toolbar" aria-label="Part 2 editor toolbar">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <!-- Run / Solve -->
+                        <button id="btnRunCode2" type="button" class="btn btn-success" title="Solve Part 2">
+                            Run
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                        <!-- Save -->
+                        <button
+                            id="btnSaveCode2"
+                            type="button"
+                            class="btn btn-outline-secondary"
+                            title="Save Part 2 solution"
+                        >
+                            <i class="bi bi-download"></i>
+                        </button>
+                        <!-- Large view -->
+                        <button id="btnFullscreen2" type="button" class="btn btn-outline-secondary" title="Large view">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <!-- CodeMirror will replace this textarea -->
+                <textarea id="solutionEditor2" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

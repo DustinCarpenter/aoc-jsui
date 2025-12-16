@@ -1,0 +1,218 @@
+<div class="row align-items-center mb-3">
+    <div class="col-12 col-md-auto d-flex justify-content-center mb-3 mb-md-0">
+        <div class="day-box">
+            <div class="day-header text-center text-white fw-bold">Day</div>
+            <div class="day-body d-flex flex-column align-items-center justify-content-center gap-1">
+                <span id="dayNumber" class="day-number"></span>
+                <div class="d-flex gap-3 justify-content-center position-relative mb-2">
+                    <a
+                        id="officialInstructionsBtn"
+                        class="btn btn-outline-secondary fs-5"
+                        title="Review the official instructions for this puzzle"
+                        target="_blank"
+                    >
+                        <i class="bi bi-file-earmark-binary-fill text-warning"></i>
+                    </a>
+                    <a
+                        id="officialInputBtn"
+                        class="btn btn-outline-secondary fs-5"
+                        title="Get the official input from Advent of Code"
+                        target="_blank"
+                    >
+                        <i class="bi bi-file-earmark-code-fill text-info"></i>
+                    </a>
+                    <button
+                        id="loadPuzzleExample"
+                        class="btn btn-outline-secondary fs-5"
+                        title="Load an example input from disk (if present)"
+                    >
+                        <i class="bi bi-folder-symlink-fill text-danger"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="help-info small text-muted">
+            <p>
+                <strong class="text-success">Inputs</strong> — Each day uses a single input shared by both parts. You
+                can paste your personal puzzle input directly into the input box, or load a local example file if one
+                exists. If <em>Auto-load example input</em> is enabled in Settings and a file is found at
+                <code>{inputsPath}/{year}/{day}-input.txt</code>, it will be loaded automatically when the day opens.
+                Your input is never saved by the app and only exists in your browser session.
+            </p>
+            <p>
+                <strong class="text-success">Solutions</strong> — Solutions are plain JavaScript files. If
+                <em>Auto-load solutions</em> is enabled in Settings and a matching file exists at
+                <code>{solutionsPath}/{year}/{day}-1.js</code> or <code>{solutionsPath}/{year}/{day}-2.js</code>, it
+                will be loaded into the editor automatically. If no day-specific file is found, a default starter
+                template is used instead. Your code receives the full input text as <code>input</code>, and whatever
+                value you <code>return</code> is shown in the output box. Use the save button to download your solution
+                file when ready.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3 gx-3">
+    <div class="col">
+        <ul class="nav nav-tabs nav-justified gap-2 border-muted mb-2" id="solutionTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button
+                    class="nav-link active text-success border border-muted"
+                    id="part1-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#part1-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="part1-pane"
+                    aria-selected="true"
+                >
+                    Part 1
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button
+                    class="nav-link text-success border border-muted"
+                    id="part2-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#part2-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="part2-pane"
+                    aria-selected="false"
+                >
+                    Part 2
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content pt-3" id="solutionTabsContent">
+            <!-- Part 1 -->
+            <div
+                class="tab-pane fade show active"
+                id="part1-pane"
+                role="tabpanel"
+                aria-labelledby="part1-tab"
+                tabindex="0"
+            >
+                <div class="row gx-3">
+                    <div class="col-12 col-lg-4 mb-3">
+                        <div class="p-3 bg-body-tertiary border rounded">
+                            <div id="puzzleInputSlot1">
+                                <div id="puzzleInputSection">
+                                    <h3 class="text-warning">Puzzle Input</h3>
+                                    <div class="mb-3">
+                                        <textarea class="form-control pre-style" id="puzzleInput" rows="6"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="text-warning">Puzzle Output</h3>
+                            <div class="mb-3">
+                                <label for="puzzleOutput" class="form-label">Part 1</label>
+                                <input type="text" class="form-control" id="puzzleOutput" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-8">
+                        <div class="card border-secondary">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span class="text-warning fw-semibold">Your Solution (Part 1)</span>
+                                <div class="btn-toolbar" role="toolbar" aria-label="Part 1 editor toolbar">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <button
+                                            id="btnRunCode1"
+                                            type="button"
+                                            class="btn btn-success"
+                                            title="Solve Part 1"
+                                        >
+                                            Run
+                                            <i class="bi bi-play-fill"></i>
+                                        </button>
+                                        <button
+                                            id="btnSaveCode1"
+                                            type="button"
+                                            class="btn btn-outline-secondary"
+                                            title="Save Part 1 solution"
+                                        >
+                                            <i class="bi bi-download"></i>
+                                        </button>
+                                        <button
+                                            id="btnFullscreen1"
+                                            type="button"
+                                            class="btn btn-outline-secondary"
+                                            title="Large view"
+                                        >
+                                            <i class="bi bi-arrows-fullscreen"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <textarea id="solutionEditor1" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 2 -->
+            <div class="tab-pane fade" id="part2-pane" role="tabpanel" aria-labelledby="part2-tab" tabindex="0">
+                <div class="row gx-3">
+                    <div class="col-12 col-lg-4">
+                        <div class="p-3 bg-body-tertiary border rounded mb-3">
+                            <div id="puzzleInputSlot2"></div>
+
+                            <h3 class="text-warning">Puzzle Output</h3>
+                            <div class="mb-3">
+                                <label for="puzzleOutput2" class="form-label">Part 2</label>
+                                <input type="text" class="form-control" id="puzzleOutput2" readonly />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-8">
+                        <div class="card border-secondary">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span class="text-warning fw-semibold">Your Solution (Part 2)</span>
+                                <div class="btn-toolbar" role="toolbar" aria-label="Part 2 editor toolbar">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <button
+                                            id="btnRunCode2"
+                                            type="button"
+                                            class="btn btn-success"
+                                            title="Solve Part 2"
+                                        >
+                                            Run
+                                            <i class="bi bi-play-fill"></i>
+                                        </button>
+                                        <button
+                                            id="btnSaveCode2"
+                                            type="button"
+                                            class="btn btn-outline-secondary"
+                                            title="Save Part 2 solution"
+                                        >
+                                            <i class="bi bi-download"></i>
+                                        </button>
+                                        <button
+                                            id="btnFullscreen2"
+                                            type="button"
+                                            class="btn btn-outline-secondary"
+                                            title="Large view"
+                                        >
+                                            <i class="bi bi-arrows-fullscreen"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <textarea id="solutionEditor2" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

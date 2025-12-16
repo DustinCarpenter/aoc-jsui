@@ -1,0 +1,196 @@
+/* ---------------------------------------------------------
+   Global utilities
+   --------------------------------------------------------- */
+
+.large-icon {
+    font-size: 13rem;
+}
+
+.pre-style {
+    font-family: monospace !important;
+    white-space: pre !important;
+    overflow: auto !important;
+    padding: 0.75rem !important;
+}
+
+.fs-7 {
+    margin-top: 0;
+    font-size: 0.65rem;
+}
+
+/* ---------------------------------------------------------
+   Top toolbar (header icons)
+   Hover states: colored icon → colored background + white icon
+   --------------------------------------------------------- */
+
+/* Reddit toolbar hover */
+a.btn-outline-secondary[href*='reddit.com']:hover {
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+}
+
+a.btn-outline-secondary[href*='reddit.com']:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* GitHub toolbar hover */
+a.btn-outline-secondary[href*='github.com']:hover {
+    background-color: var(--bs-warning);
+    border-color: var(--bs-warning);
+}
+
+a.btn-outline-secondary[href*='github.com']:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* Settings toolbar hover */
+#settingsModalBtn:hover {
+    background-color: var(--bs-info);
+    border-color: var(--bs-info);
+}
+
+#settingsModalBtn:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* Theme toolbar hover */
+#themeToggle:hover {
+    background-color: var(--bs-success);
+    border-color: var(--bs-success);
+}
+
+#themeToggle:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* ---------------------------------------------------------
+   Day page toolbar (Docs / Input / Local Example)
+   --------------------------------------------------------- */
+
+/* Official Input (info) */
+#officialInputBtn:hover {
+    background-color: var(--bs-info);
+    border-color: var(--bs-info);
+}
+
+#officialInputBtn:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* Official Instructions (warning) */
+#officialInstructionsBtn:hover {
+    background-color: var(--bs-warning);
+    border-color: var(--bs-warning);
+}
+
+#officialInstructionsBtn:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* Local Example (danger) */
+#loadPuzzleExample:hover {
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+}
+
+#loadPuzzleExample:hover i {
+    color: var(--bs-white) !important;
+}
+
+/* ---------------------------------------------------------
+   Day page tabs
+   --------------------------------------------------------- */
+
+#solutionTabs .nav-link.active {
+    color: var(--bs-success);
+    background-color: rgba(var(--bs-success-rgb), 0.1);
+    border-bottom: 2px solid rgba(var(--bs-success-rgb), 0.1);
+}
+
+/* ---------------------------------------------------------
+   Day box (Day number card)
+   --------------------------------------------------------- */
+
+.day-box {
+    width: 12rem;
+}
+
+.day-number {
+    font-size: 6rem;
+}
+
+.day-box .day-body {
+    aspect-ratio: 1 / 1;
+    border-bottom: 1px solid #686868;
+    border-left: 1px solid #686868;
+    border-right: 1px solid #686868;
+}
+
+.day-header {
+    background-color: #000;
+    border: 1px solid #686868;
+    padding: 0.25rem;
+}
+
+/* ---------------------------------------------------------
+   Editors (CodeMirror)
+   --------------------------------------------------------- */
+
+#part1-pane .CodeMirror,
+#part2-pane .CodeMirror,
+#solutionEditor1 .CodeMirror,
+#solutionEditor2 .CodeMirror {
+    min-height: 345px;
+}
+
+.card .CodeMirror {
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* ---------------------------------------------------------
+   Fullscreen editor
+   --------------------------------------------------------- */
+
+.cm-fullscreen {
+    position: fixed !important;
+    top: 2.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 2rem;
+    z-index: 1050;
+    height: auto !important;
+    background: #1e1e1e;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.cm-fullscreen .CodeMirror {
+    height: 100% !important;
+}
+
+.cm-fullscreen .CodeMirror-scroll {
+    height: 100% !important;
+}
+
+.cm-fullscreen .cm-exit-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    z-index: 1060;
+}
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+footer {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: underline;
+}
